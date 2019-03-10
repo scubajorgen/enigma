@@ -17,34 +17,40 @@ public class EnigmaSimulator
      */
     public static void main(String[] args)
     {
-        Enigma enigma;
+        Enigma  enigma;
+        String  text;
+        String  encrypted;
         
        
         enigma=new EnigmaM3();
         enigma.setWalzen("I II III");
         enigma.setUmkehrWalze("UKW B");
-        enigma.setSteckerBrett("");
-        enigma.setRingStellungen("1 1 1");
+        enigma.setSteckers("bq cr di ej kw mt os px uz gh");
+        enigma.setRingStellungen("1 2 3");
         enigma.setGrundStellungen("Q D U");
-        
-        
-        int i=0;
-        while (i<30)
-        {
-            System.out.println("Encoding: "+enigma.encodeDecode("a")+" "+enigma.getGrundStellungen());
-            i++;
-        }
 
-/*
-            String test="";
-            int i=0;
-            while (i<1)
-            {
-                test+="aaaaaaaaaaaaaaaaaaaaaaaaaa";
-                i++;
-            }
-            System.out.println("Encoding: "+enigma.encodeDecode(test));
-*/
+        text="Die Enigma ist eine Rotor-Schlusselmaschine, die im Zweiten Weltkrieg verwendet wurde";
+
+        System.out.println("ENCRYPT");
+        System.out.println("Grundstellung : "+enigma.getGrundStellungen());
+        encrypted=enigma.encodeDecode(text);
+        System.out.println("Text to ecrypt: "+text);
+        System.out.println("Encrypted     : "+encrypted);
+        System.out.println("Grundstellung : "+enigma.getGrundStellungen());
+        
+        
+        System.out.println("DECRYPT");
+        enigma.setGrundStellungen("Q D U");
+        System.out.println("Grundstellung : "+enigma.getGrundStellungen());
+        text=enigma.encodeDecode(encrypted);
+        System.out.println("Decrypted     : "+text);
+        System.out.println("Grundstellung : "+enigma.getGrundStellungen());
+        
+  
     }
+
+    
+    
+    
     
 }
