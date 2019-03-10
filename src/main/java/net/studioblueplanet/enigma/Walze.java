@@ -98,7 +98,7 @@ public class Walze
         }
         if (!found)
         {
-            System.err.println("Not a valid rotor chosen");
+            Logger.logError("Not a valid rotor chosen");
         }
         else
         {
@@ -170,9 +170,9 @@ public class Walze
     
     
     /**
-     * Encode decode
-     * @param letter
-     * @return 
+     * Right to left, i.e. from Eintrittswalze to Umkehrwalze side
+     * @param letter entry letter to encode/decode
+     * @return The exit letter
      */
     public int rightToLeft(int letter)
     {
@@ -216,9 +216,9 @@ public class Walze
 
     
     /**
-     * Encode decode
-     * @param letter
-     * @return 
+     * Left to right, i.e. from Umkehrwalze to Eintrittswalze side
+     * @param letter entry letter to encode/decode
+     * @return The exit letter
      */
     public int leftToRight(int letter)
     {

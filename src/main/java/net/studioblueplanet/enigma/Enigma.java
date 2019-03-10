@@ -51,7 +51,7 @@ public class Enigma
         }
         else
         {
-            System.err.println("Not correct number of rotors");
+            Logger.logError("Not correct number of rotors");
         }
     }
     
@@ -69,7 +69,7 @@ public class Enigma
      * @param switches String of interchanged letters "bf cg zy ...". Max 13 
      *                 pairs. Leave empty if not Steckers plugged 
      */
-    public void setSteckerBrett(String switches)
+    public void setSteckers(String switches)
     {
         String[]    split;
         int         i;
@@ -112,7 +112,7 @@ public class Enigma
         }
         else
         {
-            System.out.println("Invalid number of ring positions");
+            Logger.logError("Invalid number of ring positions");
         }
     }
     
@@ -138,7 +138,7 @@ public class Enigma
         }
         else
         {
-            System.out.println("Invalid number of ring positions");
+            Logger.logError("Invalid number of ring positions");
         }
     }    
     
