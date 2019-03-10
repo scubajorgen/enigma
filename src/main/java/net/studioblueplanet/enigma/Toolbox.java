@@ -23,7 +23,7 @@ public class Toolbox
         
         newPosition=0;
         // 1-26
-        if (positionSetting>0 && positionSetting<26)
+        if (positionSetting>0 && positionSetting<=26)
         {
             newPosition=positionSetting-1;
         }
