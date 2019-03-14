@@ -2,12 +2,6 @@
 ## Enigma simulation
 This program simulates the Enigma M3 and M4. It was created to study the famous encryption/decryption machine used during WWII.
 
-## Building
-Simply call make.
-It delivers two executable files:
-* enigma, which executes a brute force example
-* test, which execute module tests
-
 ## Usage
 
         enigma=new EnigmaM3();
