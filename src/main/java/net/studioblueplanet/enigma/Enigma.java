@@ -117,6 +117,23 @@ public class Enigma
     }
     
     /**
+     * Sets the rotor positions (Grundstellungen) as integer
+     * @param positions Positions 1-26
+     */
+    public void setGrundStellungen(int[] positions)
+    {
+        int i;
+    
+        i=0;
+        while (i<numberOfRotors)
+        {
+            rotors[i].setGrundStellung(positions[i]);
+            i++;
+        }
+    }
+    
+    
+    /**
      * Sets the RingStellung of all rotors
      * @param positions String of positions, either as number or letter.
      *                  Space separated "A B C" or "1 2 3" or "01 02 03"
@@ -141,6 +158,23 @@ public class Enigma
             Logger.logError("Invalid number of ring positions");
         }
     }    
+    
+    /**
+     * Sets the rotor RingStellungen as integer
+     * @param positions Positions 1-26
+     */
+    public void setRingStellungen(int[] ringStellungen)
+    {
+        int i;
+    
+        i=0;
+        while (i<numberOfRotors)
+        {
+            rotors[i].setRingStellung(ringStellungen[i]);
+            i++;
+        }
+    }
+        
     
     /**
      * Returns the positions of the rotors 
@@ -230,7 +264,6 @@ public class Enigma
                     intermediate=rotors[i].rightToLeft(intermediate);
                     i++;
                 }
-
                 intermediate=reflector.reflect(intermediate);
 
                 i=numberOfRotors-1;
