@@ -5,6 +5,8 @@
  */
 package net.studioblueplanet.enigma;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jorgen
@@ -88,4 +90,68 @@ public class Toolbox
         }
         return position;
     }    
+    
+    /**
+     * Counts the occurences of given character in given text
+     * @param text The text to analyse
+     * @param character The character to search for
+     * @return Number of occurrences
+     */
+    public static int countCharacter(String text, char character)
+    {
+        int count = 0;
+
+        for (int i = 0; i < text.length(); i++) 
+        {
+            if (text.charAt(i) == character) 
+            {
+                count++;
+            }
+        }        
+        return count;
+    }    
+
+    /**
+     * Generates the permutations
+     * @param permutations Array list that will contain the permuations
+     * @param elements Possible values to permute
+     * @param startingElement Starting element, must be 0 to start
+     * @param places Number of places to fill with permutations of the elements. 
+     *               Must be equal or less than lenght of course
+     */
+    static void permute(ArrayList<Integer[]> permutations, int[] elements, int places, int startingElement) 
+    {
+        Integer[] permutation;
+        
+        if (startingElement == places) 
+        {
+            permutation=new Integer[elements.length];
+            for (int i = 0; i < elements.length; i++) 
+            {
+                permutation[i]=elements[i];
+//                System.out.print(" [" + elements[i] + "] ");
+            }
+            permutations.add(permutation);
+//            System.out.println();
+        } 
+        else 
+        {
+            for (int i = startingElement; i < elements.length; i++) 
+            {
+                int temp = elements[startingElement];
+                elements[startingElement] = elements[i];
+                elements[i] = temp;
+ 
+                permute(permutations, elements, places, startingElement + 1);
+ 
+                temp = elements[startingElement];
+                elements[startingElement] = elements[i];
+                elements[i] = temp;
+            }
+        }
+    }
+    
+
+
+
 }
